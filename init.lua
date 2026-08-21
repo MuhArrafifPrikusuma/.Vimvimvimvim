@@ -35,6 +35,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
         vim.api.nvim_set_hl(0, "NeoTreeNormal", { bg = "#24273a", ctermbg = "NONE" })
     end,
 })
+
 -- validate that lazy is available
 if not pcall(require, "lazy") then
   -- stylua: ignore
