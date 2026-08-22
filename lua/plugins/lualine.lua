@@ -16,14 +16,54 @@ return {
                     icons_enabled = true,
                     theme = {
                         normal = {
-                            a = { fg = "#181926", bg = "#c6a0f6", gui = "bold" },
-                            b = { fg = "#c6a0f6", bg = "#1e2030" },
-                            c = { fg = "#B4a2F0", bg = "" }
+                            a = { fg = "#181926", bg = "#ea999c", gui = "bold" },
+                            b = { fg = "#ea999c", bg = "#1e2030", gui = "bold" },
+                            c = { fg = "#B4a2F0", bg = "none" }
                         },
-                        insert = { a = { fg = "#2E3157", bg = "#95C561", gui = "bold" } },
-                        visual = { a = { fg = "#2E3157", bg = "#FAB795", gui = "bold" } },
-                        replace = { a = { fg = "#2E3157", bg = "#F582A7", gui = "bold" } },
-                        command = { a = { fg = "#2E3157", bg = "#f5a97f", gui = "bold" } },
+                        insert = {
+                            a = { fg = "#181926", bg = "#d3c890", gui = "bold" },
+                            b = {
+                                fg = "#d3c890",
+                                bg = "#11111b",
+                                gui = "bold"
+                            },
+                            c = { fg = "#a6e3a1", bg = "none" }
+                        },
+                        visual = {
+                            a = { fg = "#181926", bg = "#91d7e3", gui = "bold" },
+                            b = {
+                                fg = "#91d7e3",
+                                bg = "#181825",
+                                gui = "bold"
+                            },
+                            c = { fg = "#cdd6f4", bg = "none" }
+                        },
+                        replace = {
+                            a = { fg = "#181926", bg = "#F582A7", gui = "bold" },
+                            b = {
+                                fg = "#F582A7",
+                                bg = "#1e2030",
+                                gui = "bold"
+                            }
+                        },
+                        command = {
+                            a = { fg = "#181926", bg = "#ffa97f", gui = "bold" },
+                            b = {
+                                fg = "#ffa97f",
+                                bg = "#1e2030",
+                                gui = "bold"
+                            },
+                            c = { fg = "#89b4fa", bg = "none" }
+                        },
+                        terminal = {
+                            a = { fg = "#181926", bg = "#f2d5cf", gui = "bold" },
+                            b = {
+                                fg = "#f2d5cf",
+                                bg = "#1e2030",
+                                gui = "bold"
+                            },
+                            c = { fg = "#f2cdcd", bg = "none" }
+                        },
                         inactive = {
                             a = { fg = "#6C6F93", bg = "#2E3157" },
                             b = { fg = "#6C6F93", bg = "#2E3157" },
@@ -36,6 +76,7 @@ return {
                         statusline = {},
                         winbar = {}
                     },
+
                     ignore_focus = {},
                     always_divide_middle = true,
                     always_show_tabline = true,
@@ -76,12 +117,15 @@ return {
                             cond = function ()
                                 return vim.fn.reg_recording() ~= ""
                             end
-                        }
+                        },
+                        "selectioncount",
+                        "searchcount"
                     },
                     lualine_b = {
                         "branch",
                         "diff",
-                        "diagnostics"
+                        "diagnostics",
+                        "hostname"
                     },
                     lualine_c = {
                         {
@@ -90,13 +134,14 @@ return {
                             max_length = vim.o.columns / 3,
                             mode = 1,
                             path = 0,
-                            use_mode_labels = false,
+                            use_mode_labels = true,
                             show_modified_status = true,
-                            symbols = { modified = "is not saved idiot" }
+                            symbols = { modified = "۞" }
                         }
                     },
+
                     lualine_x = { "encoding", "fileformat", "filetype" },
-                    lualine_y = { "progress" },
+                    lualine_y = { "progress", "lsp_status" },
                     lualine_z = { "location" }
                 },
                 inactive_sections = {
@@ -109,6 +154,7 @@ return {
                     lualine_y = {},
                     lualine_z = {}
                 },
+
                 tabline = {},
                 winbar = {},
                 inactive_winbar = {},
