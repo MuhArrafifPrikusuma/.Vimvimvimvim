@@ -16,23 +16,23 @@ return {
                     icons_enabled = true,
                     theme = {
                         normal = {
-                            a = { fg = "#181926", bg = "#ea999c", gui = "bold" },
-                            b = { fg = "#ea999c", bg = "#1e2030", gui = "bold" },
-                            c = { fg = "#B4a2F0", bg = "none" }
+                            a = { fg = "#181926", bg = "#cba135", gui = "bold" },
+                            b = { fg = "#cba135", bg = "#3a322d", gui = "bold" },
+                            c = { fg = "#b49bb0", bg = "none" }
                         },
                         insert = {
                             a = { fg = "#181926", bg = "#d3c890", gui = "bold" },
                             b = {
                                 fg = "#d3c890",
-                                bg = "#11111b",
+                                bg = "#3a322d",
                                 gui = "bold"
                             },
-                            c = { fg = "#a6e3a1", bg = "none" }
+                            c = { fg = "#9c8b76", bg = "none" }
                         },
                         visual = {
-                            a = { fg = "#181926", bg = "#91d7e3", gui = "bold" },
+                            a = { fg = "#181926", bg = "#c05f3c", gui = "bold" },
                             b = {
-                                fg = "#91d7e3",
+                                fg = "#c05f3c",
                                 bg = "#181825",
                                 gui = "bold"
                             },
@@ -47,19 +47,19 @@ return {
                             }
                         },
                         command = {
-                            a = { fg = "#181926", bg = "#ffa97f", gui = "bold" },
+                            a = { fg = "#181926", bg = "#d9c17a", gui = "bold" },
                             b = {
-                                fg = "#ffa97f",
+                                fg = "#d9c17a",
                                 bg = "#1e2030",
                                 gui = "bold"
                             },
-                            c = { fg = "#89b4fa", bg = "none" }
+                            c = { fg = "#b3bf94", bg = "none" }
                         },
                         terminal = {
                             a = { fg = "#181926", bg = "#f2d5cf", gui = "bold" },
                             b = {
                                 fg = "#f2d5cf",
-                                bg = "#1e2030",
+                                bg = "#3a322d",
                                 gui = "bold"
                             },
                             c = { fg = "#f2cdcd", bg = "none" }
@@ -118,14 +118,25 @@ return {
                                 return vim.fn.reg_recording() ~= ""
                             end
                         },
+                        {
+                            function ()
+                                if _G.latest_keystroke == "" then
+                                    return ""
+                                end
+                                return "" .. _G.latest_keystroke
+                            end,
+                            color = { fg = "#181926", gui = "bold" },
+                            cond = function ()
+                                return _G.latest_keystroke ~= ""
+                            end
+                        },
                         "selectioncount",
                         "searchcount"
                     },
                     lualine_b = {
                         "branch",
                         "diff",
-                        "diagnostics",
-                        "hostname"
+                        "diagnostics"
                     },
                     lualine_c = {
                         {
