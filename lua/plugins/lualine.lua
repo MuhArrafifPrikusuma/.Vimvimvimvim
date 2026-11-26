@@ -118,18 +118,18 @@ return {
                                 return vim.fn.reg_recording() ~= ""
                             end
                         },
-                        {
-                            function ()
-                                if _G.latest_keystroke == "" then
-                                    return ""
-                                end
-                                return "" .. _G.latest_keystroke
-                            end,
-                            color = { fg = "#181926", gui = "bold" },
-                            cond = function ()
-                                return _G.latest_keystroke ~= ""
-                            end
-                        },
+                        -- {
+                        --     function ()
+                        --         if _G.latest_keystroke == "" then
+                        --             return ""
+                        --         end
+                        --         return "" .. _G.latest_keystroke
+                        --     end,
+                        --     color = { fg = "#181926", gui = "bold" },
+                        --     cond = function ()
+                        --         return _G.latest_keystroke ~= ""
+                        --     end
+                        -- },
                         "selectioncount",
                         "searchcount"
                     },
