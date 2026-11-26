@@ -26,16 +26,12 @@ vim.api.nvim_create_autocmd("ColorScheme", {
     group = macchiato_group,
     pattern = "*",
     callback = function ()
-        -- Force main workspace window canvas to match Kitty's background (#24273a)
         vim.api.nvim_set_hl(0, "Normal", { bg = "NONE", ctermbg = "NONE" })
 
-        -- Force floating diagnostic, hover, and popup windows to match
         vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE", ctermbg = "NONE" })
 
-        -- Ensure terminal panels inside Neovim match cleanly
         vim.api.nvim_set_hl(0, "Terminal", { bg = "#24273a", ctermbg = "NONE" })
 
-        -- Style sidebar layouts (like Neo-tree / NvimTree) to match perfectly
         vim.api.nvim_set_hl(0, "NvimTreeNormal", { bg = "#24273a", ctermbg = "NONE" })
         vim.api.nvim_set_hl(0, "NeoTreeNormal", { bg = "#24273a", ctermbg = "NONE" })
     end
